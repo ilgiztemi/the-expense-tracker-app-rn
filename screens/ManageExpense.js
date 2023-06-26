@@ -8,12 +8,14 @@ const ManageExpense = ( { route, navigation } ) => {
   const editedExpenseId = route.params?.expenseId;
   const isEditing = !!editedExpenseId;
   const deleteExpenseHandler = () => {
+    navigation.goBack();
 
   };
   const cancelHandler = () => {
-
+    navigation.goBack();
   };
   const confirmHandler = () => {
+    navigation.goBack();
 
   };
   useLayoutEffect( () => {
