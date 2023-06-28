@@ -17,7 +17,11 @@ const ExpenseForm = () => {
         maxLength: 10,
         onChangedText: () => {}
       }} />
-      <Input label="Description" />
+      <Input label="Description" textInputConfig={{
+        multiline: true,
+        // autoCapitalize: 'none',
+        // autoCorrect: false  //default is true
+      }} />
     </View>
   )
 }
