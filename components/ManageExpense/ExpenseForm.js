@@ -17,32 +17,40 @@ const ExpenseForm = ({submitButtonLabel, onCancel, onSubmit}) => {
       };
     } );
   };
+  const submitHandler = () => {
+    const expenseData = {
+      amount: +inputValues.amount,
+      date: new Date(inputValues.date),
+      description: inputValues.description
+    }
+    onSubmit(expenseData)
+  }
   return (
     <View style={ styles.form }>
       <Text style={ styles.title }>Your Expense</Text>
       <View style={ styles.inputsForm }>
         <Input label="Amount" style={ styles.rowInput } textInputConfig={ {
           keyboardType: 'decimal-pad',
-          onChangedText: inputChangedHandler.bind( this, 'amount' ),
+          onChangeText: inputChangedHandler.bind( this, 'amount' ),
           value: inputValues.amount
         } } />
         <Input label="Date" style={ styles.rowInput } textInputConfig={ {
           placeholder: 'YYYY-MM-DD',
           maxLength: 10,
-          onChangedText: inputChangedHandler.bind( this, 'date' ),
+          onChangeText: inputChangedHandler.bind( this, 'date' ),
           value: inputValues.date
         } } />
       </View>
       <Input label="Description" textInputConfig={ {
         multiline: true,
-        onChangedText: inputChangedHandler.bind( this, 'description' ),
+        onChangeText: inputChangedHandler.bind( this, 'description' ),
         value: inputValues.description
         // autoCapitalize: 'none',
         // autoCorrect: false  //default is true
       } } />
       <View style={ styles.buttons }>
         <Button style={ styles.button } mode='flat' onPress={ onCancel }>Cancel</Button>
-        <Button style={ styles.button } onPress={ onSubmit }>{ submitButtonLabel }</Button>
+        <Button style={ styles.button } onPress={ submitHandler }>{ submitButtonLabel }</Button>
       </View>
     </View>
   );
