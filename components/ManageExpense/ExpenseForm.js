@@ -32,15 +32,15 @@ const ExpenseForm = ( { submitButtonLabel, onCancel, onSubmit, defaultValues } )
       setInputs( currInputs => {
         return {
           amount: { value: currInputs.amount.value, isValid: amountIsValid },
-          date: { value: currInputs.date.value, isValid: dateIsValidIsValid },
+          date: { value: currInputs.date.value, isValid: dateIsValid },
           description: { value: currInputs.description.value, isValid: descriptionIsValid }
         };
       } );
       return;
     }
     onSubmit( expenseData );
-    const formIsInvalid = !amountIsValid || !dateIsValid || !descriptionIsValid;
   };
+  const formIsInvalid = !inputs.amount.isValid || !inputs.date.isValid || !inputs.description.isValid;
   return (
     <View style={ styles.form }>
       <Text style={ styles.title }>Your Expense</Text>
