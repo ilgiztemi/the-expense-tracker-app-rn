@@ -2,13 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import ExpensesOutput from "../components/ExpensesOutput/ExpensesOutput";
 import { getDateMinusDays } from "../util/date";
 import { ExpensesContext } from "../store/expensesContext";
-import { fetchEXpenses } from "../util/http";
+import { fetchExpenses } from "../util/http";
 
 const RecentExpenses = () => {
   const expensesCtx = useContext( ExpensesContext );      
   useEffect( () => {
     const getExpenses = async () => {
-      const expenses = await fetchEXpenses();
+      const expenses = await fetchExpenses();
       expensesCtx.setExpenses(expenses);
     };
     getExpenses();
